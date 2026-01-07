@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff7a18, #ff9f43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  width: 850px;
+  height: 480px;
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.auth-left {
+  width: 45%;
+  background: #fff3e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-left img {
+  width: 70%;
+}
+
+.auth-right {
+  width: 55%;
+  padding: 40px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.title span {
+  color: #ff7a18;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  color: #777;
+}
+
+.switch {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.switch button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.switch button.active {
+  background: #ff7a18;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ff7a18;
+}
+
+.btn-primary {
+  background: #ff7a18;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #e56a12;
+}
+
+.hidden {
+  display: none;
+}
+
+.terms {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #777;
+}
+
+.terms span {
+  color: #ff7a18;
+  font-weight: 600;
+}

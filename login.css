@@ -1,0 +1,138 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f3d2b, #264f37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTAINER LANDSCAPE */
+.login-container {
+  width: 820px;
+  min-height: 420px;
+  background: #1b3326;
+  display: flex;
+  gap: 36px;
+  padding: 36px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* KIRI: LOGO */
+.logo-box {
+  flex: 1;
+  background: linear-gradient(135deg, #1f3d2b, #264f37);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box img {
+  width: 180px;
+}
+
+/* KANAN: LOGIN CONTENT */
+.login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+/* TITLE */
+.title {
+  font-size: 34px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.title span {
+  color: #f28c28;
+}
+
+/* SUBTITLE */
+.subtitle {
+  font-size: 14px;
+  margin: 8px 0 24px;
+  opacity: 0.85;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  margin-top: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #f28c28;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e67c1f;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #1f3d2b;
+}
+
+.btn-secondary:hover {
+  background: #f2f2f2;
+}
+
+/* 🔥 TOMBOL MENJADI DUA BARIS */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;    /* jarak antar tombol */
+}
+
+/* DIVIDER */
+.divider {
+  margin: 14px 0;
+  font-size: 14px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* TERMS */
+.terms {
+  font-size: 11px;
+  margin-top: 18px;
+  opacity: 0.65;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .login-container {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .logo-box {
+    height: 180px;
+  }
+
+  .login-content {
+    text-align: center;
+  }
+}
