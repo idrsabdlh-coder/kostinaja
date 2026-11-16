@@ -1,0 +1,26 @@
+# Rahasia
+.env
+.env.*
+!.env.example
+config/koneksi.php
+
+# Dump database (berisi hash dan data nyata)
+*.sql
+!database/kostinaja.sql
+backup/
+
+# Unggahan pengguna (folder tetap ada lewat .gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# Dependensi dan build
+node_modules/
+vendor/
+dist/
+
+# Lainnya
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
