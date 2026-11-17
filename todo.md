@@ -42,7 +42,7 @@ Tujuan: versi PHP lama aman, bisa dijalankan dari repo bersih, dan terdokumentas
 |---|---|---|---|---|---|---|
 | [x] | 0.1 | Audit repo `kostinaja` dan susun `PRD.md` v1.0 | UM | M | PRD 2 | `PRD.md` ada (selesai 16 Nov 2026) |
 | [ ] | 0.2 | Ekspor database lokal lama dengan `mysqldump`. **Jangan dikomit** (berisi hash dan data nyata) | UM | M | K-6, A-6 | Berkas dump ada di luar repo. Catat nama tabel, kolom, dan format kolom `fasilitas` di Log |
-| [ ] | 0.3 | Buat `.gitignore` (`.env`, `*.sql` berisi data nyata, `uploads/`, `node_modules/`, `vendor/`) dan template `config/koneksi.example.php` | UM | M | P-06, NFR-BE-02 | `git status` tidak menampilkan berkas rahasia |
+| [x] | 0.3 | Buat `.gitignore` (`.env`, `*.sql` berisi data nyata, `uploads/`, `node_modules/`, `vendor/`) dan template `config/koneksi.example.php` | UM | M | P-06, NFR-BE-02 | `git status` tidak menampilkan berkas rahasia |
 | [ ] | 0.4 | Buat `AGENTS.md`: aturan kerja agent (baca PRD dan todo dulu, hanya satu task per branch, tidak push, tidak `migrate:fresh` di luar `_dev` dan `_test`, tidak mengarang keputusan `K-x`) | UM | S | – | Agent baru menjawab benar saat ditanya aturan inti |
 | [ ] | 0.5 | Buat `docs/DESAIN.md` kerangka: arsitektur, struktur folder, konvensi penamaan, daftar endpoint (disalin dari PRD 11) | UM | S | PRD 10, 11 | Berkas ada, endpoint cocok dengan PRD |
 | [ ] | 0.6 | Rapikan struktur versi lama: buat `config/`, `css/`, `assets/`, `uploads/`, pindahkan berkas sesuai path yang dipakai kode | UM | M | P-01 | Clone bersih: halaman login dan beranda tampil dengan style dan logo |
@@ -294,6 +294,7 @@ Catat tanggal, ID task, hasil satu atau dua kalimat, hasil verifikasi, dan nilai
 ### Umum (UM)
 
 - 16 Nov 2026, 0.1: audit repo `kostinaja` (commit `7dbe6d7`, 15 file PHP native) selesai, `PRD.md` v1.0 dibuat. Verifikasi: berkas PRD ada. K-x memakai nilai bawaan.
+- 17 Nov 2026, 0.3: `.gitignore`, `.gitattributes`, dan `config/koneksi.example.php` dibuat; `koneksi.php` dipindah dengan `git mv`. Verifikasi: `git check-ignore -v config/koneksi.php` cocok, `git status` tidak menampilkan berkas rahasia. K-x memakai nilai bawaan.
 
 ### Backend (BE)
 
