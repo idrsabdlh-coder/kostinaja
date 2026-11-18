@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f5f6f7;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #1f3d2b;
+  color: #fff;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #f5c400;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu .btn {
+  background: #f5c400;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: #1f3d2b;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(#1f3d2b, #264f37);
+  color: #fff;
+  padding: 60px;
+  text-align: center;
+}
+
+.search-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box input,
+.search-box select {
+  padding: 12px;
+  width: 220px;
+  border-radius: 6px;
+  border: none;
+}
+
+.search-box button {
+  background: #f5c400;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* KOS LIST */
+.kos-list {
+  padding: 60px;
+}
+
+.kos-list h2 {
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.price {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1f3d2b;
+}
+
+footer {
+  background: #1f3d2b;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}

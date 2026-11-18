@@ -19,7 +19,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
 <div class="login-container">
   <div class="logo-box">
-    <img src="assets/logo.png" alt="Logo Kostin Aja">
+    <img src="assets/logo.svg" alt="Logo Kostin Aja">
   </div>
 
   <div class="login-content animate">
@@ -30,6 +30,12 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
       <a href="login_form.php" class="btn btn-primary">Masuk</a>
 
       <a href="register.php" class="btn btn-secondary">Daftar</a>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <a href="index.php" style="color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px;">
+        ← Jelajahi Kos tanpa masuk
+      </a>
     </div>
   </div>
 </div>
