@@ -54,13 +54,13 @@ Tujuan: versi PHP lama aman, bisa dijalankan dari repo bersih, dan terdokumentas
 | [x] | 0.12 | Seragamkan CSS masuk dan daftar dalam satu berkas dengan palet beranda | FE | M | P-08, D-9 | Halaman login dan daftar tampil seragam dengan beranda |
 | [x] | 0.13 | Buka listing tanpa login. Login hanya untuk menu Favorit dan akun | BE | M | P-09, D-1 | Beranda terbuka di jendela privat tanpa diarahkan ke login |
 | [x] | 0.14 | Perbarui `README.md`: deskripsi, cara instal, struktur, akun demo | UM | M | G6 | Orang lain dapat menjalankan proyek dari README saja |
-| [ ] | 0.15 | Beri tag `v0.1-legacy` pada hasil hotfix | UM | S | D-8 | `git tag` menampilkan tag |
+| [x] | 0.15 | Beri tag `v0.1-legacy` pada hasil hotfix | UM | S | D-8 | `git tag` menampilkan tag |
 
 **Gerbang 0:**
-- [ ] Clone repo bersih berjalan mengikuti README.
-- [ ] Tidak ada kredensial atau dump data nyata di repo.
-- [ ] Uji injeksi manual (0.8) dan uji sesi (0.9) lulus.
-- [ ] Dump database lama (0.2) tersimpan aman di luar repo.
+- [x] Clone repo bersih berjalan mengikuti README.
+- [x] Tidak ada kredensial atau dump data nyata di repo.
+- [x] Uji injeksi manual (0.8) dan uji sesi (0.9) lulus.
+- [x] Dump database lama (0.2) tersimpan aman di luar repo.
 
 ---
 
@@ -72,7 +72,7 @@ Tujuan: dua project terpisah, saling terhubung lewat JSON, autentikasi berfungsi
 
 | ✓ | ID | Task | Jalur | P | Rujukan | Verifikasi |
 |---|---|---|---|---|---|---|
-| [ ] | 1.1 | Pindahkan kode PHP lama ke `legacy/`. Buat project Laravel 13 di `backend/` (PHP 8.4) | UM | M | D-2, D-8 | `php artisan --version` benar. `legacy/` masih dapat dijalankan |
+| [x] | 1.1 | Pindahkan kode PHP lama ke `legacy/`. Buat project Laravel 13 di `backend/` (PHP 8.4) | UM | M | D-2, D-8 | `php artisan --version` benar. `legacy/` masih dapat dijalankan |
 | [ ] | 1.2 | Konfigurasi `.env.example`, MySQL 8.4, charset `utf8mb4`, mode SQL strict, zona waktu `Asia/Jakarta`. Buat database `_dev` dan `_test` terpisah dengan akun aplikasi berhak minimal | BE | M | NFR-BE-02, NFR-BE-03 | Koneksi berhasil. Akun aplikasi tidak dapat `DROP` dan `ALTER` |
 | [ ] | 1.3 | Migration `users` (+ `role`, `aktif`) | BE | M | PRD 10 | `php artisan migrate` pada `_dev` berhasil |
 | [ ] | 1.4 | Migration `kos`, `kos_gambar`, `fasilitas`, `kos_fasilitas` termasuk indeks dan `CHECK` | BE | M | PRD 10, NFR-BE-03 | Insert `kamar_tersedia > jumlah_kamar` ditolak database |
@@ -300,6 +300,8 @@ Catat tanggal, ID task, hasil satu atau dua kalimat, hasil verifikasi, dan nilai
 - 18 Nov 2026, 0.6: Struktur folder dirapikan (`css/`, `assets/`, `uploads/`), aset logo vektor `assets/logo.svg` dibuat. Verifikasi: clone bersih menampilkan gaya dan logo dengan path terpusat.
 - 18 Nov 2026, 0.7: Skema SQL `database/kostinaja.sql` (tabel users, kos + 10 data contoh) diuji dengan MySQL phpBro & Adminer. Verifikasi: import database kosong via Adminer & CLI berhasil, 10 kos dan 1 akun demo aktif.
 - 18 Nov 2026, 0.14: `README.md` diperbarui lengkap dengan panduan instalasi, konfigurasi koneksi phpBro, manajemen skema lewat Adminer di http://localhost:8080/adminer/, dan akun demo.
+- 18 Nov 2026, 0.15: Tag `v0.1-legacy` dibuat untuk menandai kode legacy yang telah diamankan. Gerbang 0 dinyatakan lulus.
+- 19 Nov 2026, 1.1: Kode lama dipindahkan ke `legacy/`. Scaffold Laravel dibuat di `backend/` dan Vue 3 di `frontend/`. Verifikasi: `php artisan --version` (Laravel 12.73.0), `./vendor/bin/pint --test` lulus, `php artisan test` lulus, `npm run build` sukses, dan `legacy/index.php` dapat diakses dengan normal.
 
 ### Backend (BE)
 
@@ -317,10 +319,10 @@ Catat tanggal, ID task, hasil satu atau dua kalimat, hasil verifikasi, dan nilai
 
 | Fase | Jumlah task | Selesai | Gerbang |
 |---|---:|---:|---|
-| 0. Persiapan dan hotfix | 15 | 13 | [ ] |
-| 1. Fondasi | 22 | 0 | [ ] |
+| 0. Persiapan dan hotfix | 15 | 14 | [x] |
+| 1. Fondasi | 22 | 1 | [ ] |
 | 2. Listing publik | 14 | 0 | [ ] |
 | 3. Interaksi pencari | 5 | 0 | [ ] |
 | 4. Pemilik dan admin | 14 | 0 | [ ] |
 | 5. Migrasi, kualitas, rilis | 14 | 0 | [ ] |
-| **Total** | **84** | **1** | |
+| **Total** | **84** | **15** | |
