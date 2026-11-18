@@ -1,42 +1,82 @@
 <?php
-// 1. Pastikan session dimulai jika diperlukan nanti
 session_start();
-include 'config/koneksi.php';
+require_once 'config/koneksi.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 2. Validasi input agar tidak kosong
-    if (empty($_POST['nama']) || empty($_POST['email']) || empty($_POST['password'])) {
-        echo "<script>alert('Semua data wajib diisi!'); window.history.back();</script>";
-        exit;
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: register.php");
+    exit;
+}
 
-    $nama = mysqli_real_escape_string($conn, $_POST['nama']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$nama     = trim($_POST['nama'] ?? '');
+$email    = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
 
-    // 3. Cek apakah email sudah terdaftar
-    $cek = mysqli_query($conn, "SELECT email FROM users WHERE email = '$email'");
-    
-    if (mysqli_num_rows($cek) > 0) {
-        echo "<script>alert('Email sudah terdaftar! Gunakan email lain.'); window.location='register.php';</script>";
-        exit;
-    } else {
-        // 4. Proses Insert
-        $sql = "INSERT INTO users (nama, email, password) VALUES ('$nama', '$email', '$password')";
-        $insert = mysqli_query($conn, $sql);
+// Simpan data lama untuk form jika gagal
+$_SESSION['reg_nama']  = $nama;
+$_SESSION['reg_email'] = $email;
 
-        if ($insert) {
-            // PASTIKAN 'login_form.php' adalah nama file form login Anda
-            echo "<script>alert('Pendaftaran berhasil! Silakan login'); window.location='login_form.php';</script>";
-            exit;
-        } else {
-            // Jika gagal insert (misal: kolom database tidak sesuai)
-            echo "<script>alert('Gagal mendaftar: " . mysqli_error($conn) . "'); window.history.back();</script>";
-            exit;
-        }
-    }
+// 1. Validasi input
+if ($nama === '' || $email === '' || $password === '') {
+    $_SESSION['reg_error'] = 'Semua kolom wajib diisi.';
+    header("Location: register.php");
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['reg_error'] = 'Format email tidak valid.';
+    header("Location: register.php");
+    exit;
+}
+
+if (strlen($password) < 8) {
+    $_SESSION['reg_error'] = 'Kata sandi minimal 8 karakter.';
+    header("Location: register.php");
+    exit;
+}
+
+// 2. Cek apakah email sudah terdaftar (prepared statement - Task 0.8 / P-03)
+$cekStmt = mysqli_prepare($conn, "SELECT id FROM users WHERE LOWER(email) = LOWER(?) LIMIT 1");
+if (!$cekStmt) {
+    error_log("Register cek email statement error: " . mysqli_error($conn));
+    $_SESSION['reg_error'] = 'Terjadi kesalahan pada sistem. Silakan coba lagi.';
+    header("Location: register.php");
+    exit;
+}
+
+mysqli_stmt_bind_param($cekStmt, 's', $email);
+mysqli_stmt_execute($cekStmt);
+mysqli_stmt_store_result($cekStmt);
+$sudahAda = mysqli_stmt_num_rows($cekStmt) > 0;
+mysqli_stmt_close($cekStmt);
+
+if ($sudahAda) {
+    $_SESSION['reg_error'] = 'Email sudah terdaftar. Silakan gunakan email lain atau masuk.';
+    header("Location: register.php");
+    exit;
+}
+
+// 3. Simpan data user dengan password hash (prepared statement - Task 0.8 / BR-01)
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+$insertStmt = mysqli_prepare($conn, "INSERT INTO users (nama, email, password) VALUES (?, ?, ?)");
+
+if (!$insertStmt) {
+    error_log("Register insert statement error: " . mysqli_error($conn));
+    $_SESSION['reg_error'] = 'Pendaftaran gagal karena kendala sistem. Silakan coba lagi.';
+    header("Location: register.php");
+    exit;
+}
+
+mysqli_stmt_bind_param($insertStmt, 'sss', $nama, $email, $hashedPassword);
+$sukses = mysqli_stmt_execute($insertStmt);
+mysqli_stmt_close($insertStmt);
+
+if ($sukses) {
+    unset($_SESSION['reg_nama'], $_SESSION['reg_email'], $_SESSION['reg_error']);
+    echo "<script>alert('Pendaftaran berhasil! Silakan masuk.'); window.location='login_form.php';</script>";
+    exit;
 } else {
-    // Jika mencoba akses file ini secara langsung tanpa POST, lempar ke register
+    error_log("Gagal mengeksekusi registrasi: " . mysqli_error($conn));
+    $_SESSION['reg_error'] = 'Gagal menyimpan pendaftaran. Silakan coba lagi.';
     header("Location: register.php");
     exit;
 }

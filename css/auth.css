@@ -1,0 +1,152 @@
+/* ============================================================
+   KostinAja - Auth CSS (Masuk & Daftar)
+   Task 0.12 | Acuan: PRD 6 (D-9), PRD 14
+   Palet: Hijau Tua #1f3d2b, Hijau Sedang #264f37, Kuning #f5c400
+============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f3d2b 0%, #264f37 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  color: #333333;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-header .logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1f3d2b;
+  margin-bottom: 12px;
+}
+
+.auth-header .logo span {
+  color: #f5c400;
+}
+
+.auth-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f3d2b;
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  font-size: 14px;
+  color: #666666;
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #264f37;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #264f37;
+  box-shadow: 0 0 0 3px rgba(38, 79, 55, 0.15);
+}
+
+.btn-submit {
+  background: #1f3d2b;
+  color: #ffffff;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover {
+  background: #264f37;
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-footer p {
+  font-size: 13px;
+  color: #666666;
+}
+
+.auth-footer a {
+  color: #264f37;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+  color: #1f3d2b;
+}

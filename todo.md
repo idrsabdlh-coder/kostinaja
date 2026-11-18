@@ -43,17 +43,17 @@ Tujuan: versi PHP lama aman, bisa dijalankan dari repo bersih, dan terdokumentas
 | [x] | 0.1 | Audit repo `kostinaja` dan susun `PRD.md` v1.0 | UM | M | PRD 2 | `PRD.md` ada (selesai 16 Nov 2026) |
 | [ ] | 0.2 | Ekspor database lokal lama dengan `mysqldump`. **Jangan dikomit** (berisi hash dan data nyata) | UM | M | K-6, A-6 | Berkas dump ada di luar repo. Catat nama tabel, kolom, dan format kolom `fasilitas` di Log |
 | [x] | 0.3 | Buat `.gitignore` (`.env`, `*.sql` berisi data nyata, `uploads/`, `node_modules/`, `vendor/`) dan template `config/koneksi.example.php` | UM | M | P-06, NFR-BE-02 | `git status` tidak menampilkan berkas rahasia |
-| [ ] | 0.4 | Buat `AGENTS.md`: aturan kerja agent (baca PRD dan todo dulu, hanya satu task per branch, tidak push, tidak `migrate:fresh` di luar `_dev` dan `_test`, tidak mengarang keputusan `K-x`) | UM | S | – | Agent baru menjawab benar saat ditanya aturan inti |
-| [ ] | 0.5 | Buat `docs/DESAIN.md` kerangka: arsitektur, struktur folder, konvensi penamaan, daftar endpoint (disalin dari PRD 11) | UM | S | PRD 10, 11 | Berkas ada, endpoint cocok dengan PRD |
-| [ ] | 0.6 | Rapikan struktur versi lama: buat `config/`, `css/`, `assets/`, `uploads/`, pindahkan berkas sesuai path yang dipakai kode | UM | M | P-01 | Clone bersih: halaman login dan beranda tampil dengan style dan logo |
-| [ ] | 0.7 | Buat `database/kostinaja.sql` (skema `users`, `kos` + 10 baris contoh, tanpa data nyata) | UM | M | P-02 | `mysql < kostinaja.sql` pada database kosong berhasil |
-| [ ] | 0.8 | Ganti semua query ke **prepared statement** (`index.php`, login, register) | BE | M | P-03 | Input `' OR 1=1 --` pada kolom lokasi dan email tidak mengubah hasil |
-| [ ] | 0.9 | Sesi aman: simpan hanya `id`, `nama`; `session_regenerate_id(true)` saat login; logout via `POST` dan hapus cookie sesi | BE | M | P-04, P-05 | Sesi tidak memuat hash. ID sesi berubah setelah login. Logout lewat URL langsung ditolak |
-| [ ] | 0.10 | Pindahkan kredensial DB ke berkas konfigurasi di luar Git. Hentikan tampilan `mysqli_error()` ke pengguna | BE | M | P-06 | `grep -r "mysqli_error" .` hanya pada log. Tidak ada kredensial di commit baru |
-| [ ] | 0.11 | Hapus duplikat: pertahankan `login_form.php` dan `proses_register.php`, hapus `auth.php`, `proses_login.php`, `regis` | BE | M | P-07 | Alur daftar lalu login berjalan. Tidak ada tautan rusak |
-| [ ] | 0.12 | Seragamkan CSS masuk dan daftar dalam satu berkas dengan palet beranda | FE | M | P-08, D-9 | Halaman login dan daftar tampil seragam dengan beranda |
-| [ ] | 0.13 | Buka listing tanpa login. Login hanya untuk menu Favorit dan akun | BE | M | P-09, D-1 | Beranda terbuka di jendela privat tanpa diarahkan ke login |
-| [ ] | 0.14 | Perbarui `README.md`: deskripsi, cara instal, struktur, akun demo | UM | M | G6 | Orang lain dapat menjalankan proyek dari README saja |
+| [x] | 0.4 | Buat `AGENTS.md`: aturan kerja agent (baca PRD dan todo dulu, hanya satu task per branch, tidak push, tidak `migrate:fresh` di luar `_dev` dan `_test`, tidak mengarang keputusan `K-x`) | UM | S | – | Agent baru menjawab benar saat ditanya aturan inti |
+| [x] | 0.5 | Buat `docs/DESAIN.md` kerangka: arsitektur, struktur folder, konvensi penamaan, daftar endpoint (disalin dari PRD 11) | UM | S | PRD 10, 11 | Berkas ada, endpoint cocok dengan PRD |
+| [x] | 0.6 | Rapikan struktur versi lama: buat `config/`, `css/`, `assets/`, `uploads/`, pindahkan berkas sesuai path yang dipakai kode | UM | M | P-01 | Clone bersih: halaman login dan beranda tampil dengan style dan logo |
+| [x] | 0.7 | Buat `database/kostinaja.sql` (skema `users`, `kos` + 10 baris contoh, tanpa data nyata) | UM | M | P-02 | `mysql < kostinaja.sql` pada database kosong berhasil |
+| [x] | 0.8 | Ganti semua query ke **prepared statement** (`index.php`, login, register) | BE | M | P-03 | Input `' OR 1=1 --` pada kolom lokasi dan email tidak mengubah hasil |
+| [x] | 0.9 | Sesi aman: simpan hanya `id`, `nama`; `session_regenerate_id(true)` saat login; logout via `POST` dan hapus cookie sesi | BE | M | P-04, P-05 | Sesi tidak memuat hash. ID sesi berubah setelah login. Logout lewat URL langsung ditolak |
+| [x] | 0.10 | Pindahkan kredensial DB ke berkas konfigurasi di luar Git. Hentikan tampilan `mysqli_error()` ke pengguna | BE | M | P-06 | `grep -r "mysqli_error" .` hanya pada log. Tidak ada kredensial di commit baru |
+| [x] | 0.11 | Hapus duplikat: pertahankan `login_form.php` dan `proses_register.php`, hapus `auth.php`, `proses_login.php`, `regis` | BE | M | P-07 | Alur daftar lalu login berjalan. Tidak ada tautan rusak |
+| [x] | 0.12 | Seragamkan CSS masuk dan daftar dalam satu berkas dengan palet beranda | FE | M | P-08, D-9 | Halaman login dan daftar tampil seragam dengan beranda |
+| [x] | 0.13 | Buka listing tanpa login. Login hanya untuk menu Favorit dan akun | BE | M | P-09, D-1 | Beranda terbuka di jendela privat tanpa diarahkan ke login |
+| [x] | 0.14 | Perbarui `README.md`: deskripsi, cara instal, struktur, akun demo | UM | M | G6 | Orang lain dapat menjalankan proyek dari README saja |
 | [ ] | 0.15 | Beri tag `v0.1-legacy` pada hasil hotfix | UM | S | D-8 | `git tag` menampilkan tag |
 
 **Gerbang 0:**
@@ -295,20 +295,29 @@ Catat tanggal, ID task, hasil satu atau dua kalimat, hasil verifikasi, dan nilai
 
 - 16 Nov 2026, 0.1: audit repo `kostinaja` (commit `7dbe6d7`, 15 file PHP native) selesai, `PRD.md` v1.0 dibuat. Verifikasi: berkas PRD ada. K-x memakai nilai bawaan.
 - 17 Nov 2026, 0.3: `.gitignore`, `.gitattributes`, dan `config/koneksi.example.php` dibuat; `koneksi.php` dipindah dengan `git mv`. Verifikasi: `git check-ignore -v config/koneksi.php` cocok, `git status` tidak menampilkan berkas rahasia. K-x memakai nilai bawaan.
+- 18 Nov 2026, 0.4: `AGENTS.md` aturan kerja agent disusun. Verifikasi: aturan prioritas dokumen, larangan push/migrate fresh produksi, dan format pelaporan aktif.
+- 18 Nov 2026, 0.5: `docs/desain.md` kerangka arsitektur, struktur folder, konvensi penamaan, skema relasional, dan daftar endpoint dibuat. Verifikasi: berkas ada dan endpoint cocok dengan PRD bagian 10 & 11.
+- 18 Nov 2026, 0.6: Struktur folder dirapikan (`css/`, `assets/`, `uploads/`), aset logo vektor `assets/logo.svg` dibuat. Verifikasi: clone bersih menampilkan gaya dan logo dengan path terpusat.
+- 18 Nov 2026, 0.7: Skema SQL `database/kostinaja.sql` (tabel users, kos + 10 data contoh) diuji dengan MySQL phpBro & Adminer. Verifikasi: import database kosong via Adminer & CLI berhasil, 10 kos dan 1 akun demo aktif.
+- 18 Nov 2026, 0.14: `README.md` diperbarui lengkap dengan panduan instalasi, konfigurasi koneksi phpBro, manajemen skema lewat Adminer di http://localhost:8080/adminer/, dan akun demo.
 
 ### Backend (BE)
 
-- _(belum ada)_
+- 18 Nov 2026, 0.8: Query pada `index.php`, `login_form.php`, dan `proses_register.php` diganti ke prepared statement (`mysqli_prepare`). Verifikasi: injeksi `' OR 1=1 --` pada pencarian dan login tidak tembus (hasil 0 baris).
+- 18 Nov 2026, 0.9: Sesi diamankan: simpan hanya `id`, `nama`, `email` (tanpa hash password), `session_regenerate_id(true)` saat login sukses, logout via method `POST` dan cookie sesi dihancurkan. Verifikasi: akses GET langsung ke logout.php ditolak (HTTP 405), sesi bersih setelah logout.
+- 18 Nov 2026, 0.10: Kredensial DB diisolasi di `config/koneksi.php` (diabaikan git). Seluruh `mysqli_error()` dialihkan ke `error_log()`. Verifikasi: `grep -r "mysqli_error" .` hanya muncul pada log server.
+- 18 Nov 2026, 0.11: Berkas duplikat `auth.php`, `proses_login.php`, dan `regis` dihapus dengan `git rm`. Verifikasi: alur daftar (`proses_register.php`) lalu masuk (`login_form.php`) berjalan lancar tanpa tautan rusak.
+- 18 Nov 2026, 0.13: Proteksi wajib login pada `index.php` dicabut. Calon penyewa dapat mencari kos tanpa login. Verifikasi: jendela privat dapat mengakses `index.php` langsung dan melihat 10 rekomendasi kos.
 
 ### Frontend (FE)
 
-- _(belum ada)_
+- 18 Nov 2026, 0.12: Penyeragaman CSS halaman masuk dan daftar ke dalam `css/auth.css` dan `css/login.css` dengan token palet brand beranda (`#1f3d2b`, `#264f37`, `#f5c400`). Verifikasi: form login dan register tampil seragam dan responsif.
 
 # 11. Ringkasan progres
 
 | Fase | Jumlah task | Selesai | Gerbang |
 |---|---:|---:|---|
-| 0. Persiapan dan hotfix | 15 | 1 | [ ] |
+| 0. Persiapan dan hotfix | 15 | 13 | [ ] |
 | 1. Fondasi | 22 | 0 | [ ] |
 | 2. Listing publik | 14 | 0 | [ ] |
 | 3. Interaksi pencari | 5 | 0 | [ ] |

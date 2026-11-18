@@ -59,7 +59,7 @@ body {
 }
 
 .title span {
-  color: #f28c28;
+  color: #f5c400;
 }
 
 /* SUBTITLE */
@@ -79,15 +79,19 @@ body {
   margin-top: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
 }
 
 .btn-primary {
-  background: #f28c28;
-  color: #fff;
+  background: #f5c400;
+  color: #1f3d2b;
 }
 
 .btn-primary:hover {
-  background: #e67c1f;
+  background: #e0b400;
 }
 
 .btn-secondary {
