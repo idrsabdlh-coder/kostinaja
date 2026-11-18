@@ -3,15 +3,19 @@
 .env.*
 !.env.example
 config/koneksi.php
+legacy/config/koneksi.php
 
 # Dump database (berisi hash dan data nyata)
 *.sql
 !database/kostinaja.sql
+!legacy/database/kostinaja.sql
 backup/
 
 # Unggahan pengguna (folder tetap ada lewat .gitkeep)
 uploads/*
 !uploads/.gitkeep
+legacy/uploads/*
+!legacy/uploads/.gitkeep
 
 # Dependensi dan build
 node_modules/
